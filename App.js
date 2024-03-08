@@ -7,7 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>y
       </Text>
-      <Button>mata</Button>
+      <Button>mat este prksdkvjbjjdgxa</Button>
       <StatusBar style="auto" />
     </View>
   );
