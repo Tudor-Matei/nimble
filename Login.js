@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       filter: "blur(10px)"
     },
     backgroundVideo: {
-      position: 'absolute',
+    position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
