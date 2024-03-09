@@ -1,17 +1,26 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NativeRouter, Route, Routes } from 'react-router-native';
 import Login from './Login';
 import Start from './Start';
+import Exercise from './Exercise';
+import Blank from './Blank';
+import Avatar from './Avatar';
 
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Start />
-      <StatusBar style="auto" />
-    </View>
+    <NativeRouter>
+      <View style={styles.container}>
+        <Routes>
+          <Route path="/" element={<Blank />} />
+          <Route path="/workout" element={<Exercise />} />
+          <Route path="/profile" element={<Avatar />} />
+        </Routes>
+      </View>
+    </NativeRouter>
   );
 }
 
