@@ -9,7 +9,6 @@ const Blank = () => {
       <Text style={styles.title}>Workout Summary</Text>
       
     </View>
-    <Footer/>
     </View>
     
   );

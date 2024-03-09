@@ -24,7 +24,6 @@ const Avatar = () => {
           <FontAwesome5 name="shoe-prints" size={24} color="black" style={styles.icon} />
         </TouchableOpacity>
       </View>
-      <Footer />
     </View>
   );
 };
@@ -32,7 +31,7 @@ const Avatar = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end' ,// Align the iconBox to the right
+    justifyContent: 'flex-end' ,
     alignItems: 'center',
   },
   iconBox: {

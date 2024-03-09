@@ -42,7 +42,6 @@ const Start = () => {
         </TouchableOpacity>
       </View>
 
-      <Footer/>
     </View>
   );
 };

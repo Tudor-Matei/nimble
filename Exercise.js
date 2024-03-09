@@ -27,7 +27,6 @@ const Exercise = ({ caloriesBurned, avgHeartRate, score }) => {
         </TouchableOpacity>
       </View>
     </View>
-    <Footer/>
     </View>
     
   );
