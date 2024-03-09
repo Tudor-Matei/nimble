@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Footer } from './Footer';
 
 const Exercise = ({ caloriesBurned, avgHeartRate, score }) => {
   return (
     <View style={styles.container}>
+    <View style={styles.content}>
       <Text style={styles.title}>Workout Summary</Text>
       <View style={styles.stats}>
         <Text style={styles.stat}>Calories Burned: {caloriesBurned}</Text>
@@ -25,6 +27,9 @@ const Exercise = ({ caloriesBurned, avgHeartRate, score }) => {
         </TouchableOpacity>
       </View>
     </View>
+    <Footer/>
+    </View>
+    
   );
 };
 
@@ -33,18 +38,24 @@ const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#000000', // Black color
-    width: screenWidth,
+    backgroundColor: '#fff', 
+    width: '100%',
+    justifyContent: 'space-between',
+  },
+  content: {
+    flex: 1, // Take up remaining space
+    justifyContent: 'center', // Center content vertically
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 15,
     color: '#748067', // Green color
+    padding:20,
   },
   stats: {
     marginBottom: 20,
+    padding:20,
   },
   stat: {
     fontSize: 18,
@@ -54,8 +65,11 @@ const styles = StyleSheet.create({
   exercises: {
     flexDirection: 'column',
     justifyContent: 'space-between',
+    width:'90%',
+    alignSelf:'center',
   },
   exerciseContainer: {
+    padding: 20,
     width: '100%',
     marginBottom: 15,
     padding: 15,

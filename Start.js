@@ -33,7 +33,7 @@ const Start = () => {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Are you ready for today's challenge?</Text>
+        <Text style={styles.title}>Are you ready for this challenge?</Text>
         <TouchableOpacity
           style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
           onPress={handleStartPress}
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     textAlign: 'center', 
     marginBottom: 20,
-    
+    maxWidth: 300,
   },
   startButton: {
     backgroundColor: '#E3D87E',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   pressedButton: {
-   
+    backgroundColor: '#E3D87E',
   },
 });
 

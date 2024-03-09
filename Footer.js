@@ -20,7 +20,7 @@ export const Footer = () => {
       >
         <MaterialCommunityIcons
           name="chart-box-outline"
-          size={30}
+          size={25}
           color={selectedButton === 'Stats' ? '#fff' : '#5e5b08'}
         />
         <Text style={[styles.footerButtonText, { color: selectedButton === 'Stats' ? '#fff' : '#5e5b08' }]}>Stats</Text>
@@ -34,7 +34,7 @@ export const Footer = () => {
       >
         <MaterialCommunityIcons
           name="dumbbell"
-          size={30}
+          size={25}
           color={selectedButton === 'Workout' ? '#fff' : '#5e5b08'}
         />
         <Text style={[styles.footerButtonText, { color: selectedButton === 'Workout' ? '#fff' : '#5e5b08' }]}>Workout</Text>
@@ -48,7 +48,7 @@ export const Footer = () => {
       >
         <MaterialCommunityIcons
           name="account"
-          size={30}
+          size={25}
           color={selectedButton === 'Profile' ? '#fff' : '#5e5b08'}
         />
         <Text style={[styles.footerButtonText, { color: selectedButton === 'Profile' ? '#fff' : '#5e5b08' }]}>Profile</Text>
@@ -63,21 +63,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 4,
     paddingHorizontal: 10,
-    borderWidth: 4,
     borderColor: '#e3d87e',
-    width: '96%',
-   borderRadius:35,
-   // Make it round
-    overflow: 'hidden', // Hide overflow when rounding
-    marginBottom: 7,
+    width: '90%',
+    borderRadius:35,
+    overflow: 'hidden',
+    marginBottom: 15,
+    alignSelf:'center',
   },
   footerButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
-    borderRadius: 20, // Make it round
+    padding: 3,
+    borderRadius: 10,
+    width: 55
   },
   footerButtonText: {
     textAlign: 'center',
@@ -86,6 +86,6 @@ const styles = StyleSheet.create({
     color: '#5e5b08',
   },
   selectedButton: {
-    backgroundColor: '#5e5b08', // Change background color when selected
+    backgroundColor: '#5e5b08', 
   },
 });
