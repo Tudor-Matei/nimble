@@ -5,8 +5,9 @@ import { NativeRouter, Route, Routes } from 'react-router-native';
 import Login from './Login';
 import Start from './Start';
 import Exercise from './Exercise';
-import Blank from './Blank';
 import Avatar from './Avatar';
+import { Footer } from "./Footer";
+import { Stats } from './Stats';
 
 
 
@@ -15,12 +16,15 @@ export default function App() {
     <NativeRouter>
       <View style={styles.container}>
         <Routes>
-          <Route path="/" element={<Blank />} />
+          <Route path="/" element={<Avatar />} />
           <Route path="/workout" element={<Exercise />} />
-          <Route path="/profile" element={<Avatar />} />
+          <Route path="/stats" element={<Stats />} />
         </Routes>
       </View>
+    <Footer />
+
     </NativeRouter>
+    
   );
 }
 
