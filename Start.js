@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import {Footer} from './Footer';
-
 import Exercise from './Exercise';
 import Blank from './Blank';
 
@@ -25,6 +24,7 @@ export const Start = () => {
         </TouchableOpacity>
       </View>
 
+      <Footer/>
     </View>
   );
 };

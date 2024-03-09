@@ -69,7 +69,7 @@ export const Footer = () => {
                     <MaterialCommunityIcons
                         name="account"
                         size={25}
-                        alignItems={'center'}
+                        alignSelf='center'
                         color={selectedButton === 'Profile' ? '#fff' : '#5e5b08'}
                     />
                     <Text style={[styles.footerButtonText, { color: selectedButton === 'Profile' ? '#fff' : '#5e5b08' }]}>Profile</Text>
