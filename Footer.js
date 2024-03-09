@@ -12,9 +12,7 @@ export const Footer = () => {
 
   const handleButtonPress = (buttonName) => {
     setSelectedButton(buttonName);
-    if (buttonName === 'Workout') {
-       
-      }
+   
   };
 
   return (
@@ -62,7 +60,8 @@ export const Footer = () => {
                 size={25}
                 color={selectedButton === 'Profile' ? '#fff' : '#5e5b08'}
               />
-              <Text style={[styles.footerButtonText, { color: selectedButton === 'Profile' ? '#fff' : '#5e5b08' }]}>Profile</Text>
+              <Link to="/profile"><Text style={[styles.footerButtonText, { color: selectedButton === 'Profile' ? '#fff' : '#5e5b08' }]}>Profile</Text>
+              </Link>
             </TouchableOpacity>
         </View>
   

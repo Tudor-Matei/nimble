@@ -6,6 +6,7 @@ import Login from './Login';
 import Start from './Start';
 import Exercise from './Exercise';
 import Blank from './Blank';
+import Avatar from './Avatar';
 
 
 
@@ -16,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Blank />} />
           <Route path="/workout" element={<Exercise />} />
+          <Route path="/profile" element={<Avatar />} />
         </Routes>
       </View>
     </NativeRouter>
