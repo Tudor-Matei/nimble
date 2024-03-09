@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import {Footer} from './Footer';
 
 const Start = () => {
   const [isStartPressed, setIsStartPressed] = useState(false);
@@ -31,25 +32,33 @@ const Start = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Are you ready for today's challenge?</Text>
-      <TouchableOpacity
-        style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
-        onPress={handleStartPress}
-      >
-        <Text style={styles.buttonText}>START</Text>
-      </TouchableOpacity>
+      <View style={styles.content}>
+        <Text style={styles.title}>Are you ready for today's challenge?</Text>
+        <TouchableOpacity
+          style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
+          onPress={handleStartPress}
+        >
+          <Text style={styles.buttonText}>START</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Footer/>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '90%',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'space-between', // Aligns items with equal space between them
+        width: '100%'
+      },
+      content: {
+        flex: 1, // Take up remaining space
+        justifyContent: 'center', // Center content vertically
+      },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -63,7 +72,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 20,
     marginTop: 20,
-  },
+    width:'50%', 
+    alignSelf:'center',
+ },
   buttonText: {
     color: '#5e5b08',
     fontSize: 21,
