@@ -37,7 +37,7 @@ const Login = () => {
         resizeMode='cover'
       />
           
-      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.title}>Welcome to NIMBLE</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.loginButton, isLoginPressed ? styles.pressedButton : null]} onPress={handleLoginPress} activeOpacity={0.7}>
           <Text style={styles.buttonText}>Login</Text>
@@ -75,85 +75,88 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%'
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  description: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginBottom: 32,
-  },
-  formContainer: {
-    width: '80%',
-    filter: "blur(10px)"
-  },
-  backgroundVideo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    width: '100%',
-    height: '100%',
-    
-  },
-  input: {
-    height: 50,
-    borderColor: '#ccc',
-    borderWidth: 3,
-    borderRadius: 50,
-    paddingHorizontal: 10,
-    marginBottom: 16,
-  },
-  loginButton: {
-    backgroundColor: '#E3D87E',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    paddingRight:28,
-    paddingLeft:20,
-    borderTopLeftRadius: 20, 
-    borderBottomLeftRadius: 20, 
-  },
-  logButton: {
-    backgroundColor: '#E3D87E',
-    paddingHorizontal: 40,
-    paddingVertical: 10,
-    borderRadius: 20,
-    marginTop:20,
-    alignSelf: 'center',
-  },
-  registerButton: {
-    backgroundColor: '#E3D87E',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    paddingLeft:20,
-    borderTopRightRadius: 20, 
-    borderBottomRightRadius: 20, 
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: '#E3D87E',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 21,
-  },
-  pressedButton: {
-    backgroundColor: '#a39a4d', 
-  },
-});
-
+    container: {
+      flex: 1,
+      backgroundColor: '#0B0A07',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%'
+    },
+      title: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        color: '#F0EC57',
+        marginBottom: 16,
+        textDecorationColor: '#0B0A07',
+      },
+      
+      
+    description: {
+      fontSize: 20,
+      textAlign: 'center',
+      color: '#F0EC57',
+      marginBottom: 32,
+    },
+    formContainer: {
+      width: '80%',
+      filter: "blur(10px)"
+    },
+    backgroundVideo: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      width: '100%',
+      height: '100%',
+      opacity: 0.4,
+    },
+    input: {
+      height: 50,
+      borderColor: '#F0EC57',
+      borderWidth: 3,
+      borderRadius: 50,
+      paddingHorizontal: 10,
+      marginBottom: 16,
+      backgroundColor: 'rgba(255, 236, 87, 0.5)'
+    },
+    loginButton: {
+      backgroundColor: '#F0EC57',
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      paddingRight:28,
+      paddingLeft: 20,
+      borderTopLeftRadius: 20, 
+      borderBottomLeftRadius: 20, 
+    },
+    logButton: {
+      backgroundColor: '#E3D87E',
+      paddingHorizontal: 40,
+      paddingVertical: 10,
+      borderRadius: 20,
+      marginTop: 20,
+      alignSelf: 'center',
+    },
+    registerButton: {
+      backgroundColor: '#F0EC57',
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      paddingLeft: 20,
+      borderTopRightRadius: 20, 
+      borderBottomRightRadius: 20, 
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginBottom: 30,
+    },
+    buttonText: {
+      color: '#5e5b08',
+      fontSize: 21,
+    },
+    pressedButton: {
+      backgroundColor: '#E3D87E', 
+    },
+  });
+  
 export default Login;

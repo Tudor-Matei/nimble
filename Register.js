@@ -60,7 +60,7 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0B0A07',
     alignItems: 'center',
     justifyContent: 'center',
     width: '90%'
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#F0EC57',
     marginBottom: 16,
   },
   formContainer: {
@@ -75,24 +76,36 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: '#ccc',
+    borderColor: '#F0EC57',
     borderWidth: 3,
     borderRadius: 50,
     paddingHorizontal: 10,
     marginBottom: 16,
+    backgroundColor: 'rgba(255, 236, 87, 0.5)',
+  },
+  loginButton: {
+    backgroundColor: '#E3D87E',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    paddingRight: 28,
+    paddingLeft: 20,
+    borderTopLeftRadius: 20, 
+    borderBottomLeftRadius: 20, 
   },
   registerButton: {
     backgroundColor: '#E3D87E',
     paddingHorizontal: 40,
     paddingVertical: 10,
     borderRadius: 20,
-    marginTop:20,
+    marginTop: 20,
     alignSelf: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: '#5e5b08',
     fontSize: 21,
   },
+  pressedButton: {
+    backgroundColor: '#F0EC57', 
+  },
 });
-
 export default Register;
