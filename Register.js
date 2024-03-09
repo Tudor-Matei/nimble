@@ -83,14 +83,15 @@ const styles = StyleSheet.create({
   },
   registerButton: {
     backgroundColor: '#E3D87E',
-    paddingHorizontal: 20,
+    paddingHorizontal: 40,
     paddingVertical: 10,
     borderRadius: 20,
+    marginTop:20,
     alignSelf: 'center',
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 21,
   },
 });
 

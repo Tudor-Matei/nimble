@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 21,
   },
   pressedButton: {
     backgroundColor: '#a39a4d', 
