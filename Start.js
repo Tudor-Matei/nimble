@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     textAlign: 'center', 
     marginBottom: 20,
+    
   },
   startButton: {
     backgroundColor: '#E3D87E',
@@ -78,9 +79,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#5e5b08',
     fontSize: 21,
+    fontWeight: 'bold',
   },
   pressedButton: {
-    backgroundColor: '#F0EC57',
+   
   },
 });
 
