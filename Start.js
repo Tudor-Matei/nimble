@@ -3,10 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native
 import {Footer} from './Footer';
 
 import Exercise from './Exercise';
-import Start from './Start';
 import Blank from './Blank';
 
-export const Footer = () => {
+export const Start = () => {
   const [selectedButton, setSelectedButton] = useState('Stats');
 
   const handleButtonPress = (buttonName) => {
@@ -69,3 +68,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3D87E',
   },
 });
+
+export default Start;
