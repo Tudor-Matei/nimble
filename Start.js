@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Link } from 'react-router-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import {Footer} from './Footer';
 
 import Exercise from './Exercise';
 import Start from './Start';
@@ -16,87 +15,57 @@ export const Footer = () => {
   };
 
   return (
-        <View style={styles.footerContainer}>
-            <TouchableOpacity
-              style={[
-                styles.footerButton,
-                selectedButton === 'Stats' && styles.selectedButton,
-              ]}
-              onPress={() => handleButtonPress('Stats')}
-            >
-              <MaterialCommunityIcons
-                name="chart-box-outline"
-                size={25}
-                color={selectedButton === 'Stats' ? '#fff' : '#5e5b08'}
-              />
-              <Text style={[styles.footerButtonText, { color: selectedButton === 'Stats' ? '#fff' : '#5e5b08' }]}>Stats</Text>
-            </TouchableOpacity>
-          
-            <TouchableOpacity
-              style={[
-                styles.footerButton,
-                selectedButton === 'Workout' && styles.selectedButton,
-              ]}
-              onPress={() => handleButtonPress('Workout')}
-            >
-              <MaterialCommunityIcons
-                name="dumbbell"
-                size={25}
-                color={selectedButton === 'Workout' ? '#fff' : '#5e5b08'}
-              />
-              <Link to="/workout"><Text style={[styles.footerButtonText, { color: selectedButton === 'Workout' ? '#fff' : '#5e5b08' }]}>Workout</Text>
-              </Link>
-            </TouchableOpacity>
-          
-            <TouchableOpacity
-              style={[
-                styles.footerButton,
-                selectedButton === 'Profile' && styles.selectedButton,
-              ]}
-              onPress={() => handleButtonPress('Profile')}
-            >
-              <MaterialCommunityIcons
-                name="account"
-                size={25}
-                color={selectedButton === 'Profile' ? '#fff' : '#5e5b08'}
-              />
-              <Link to="/profile"><Text style={[styles.footerButtonText, { color: selectedButton === 'Profile' ? '#fff' : '#5e5b08' }]}>Profile</Text>
-              </Link>
-            </TouchableOpacity>
-        </View>
-  
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Are you ready for this challenge?</Text>
+        <TouchableOpacity
+          style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
+          onPress={handleStartPress}
+        >
+          <Text style={styles.buttonText}>START</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Footer/>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  footerContainer: {
-    backgroundColor: 'rgba(227, 216, 126, 0.2)',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    paddingVertical: 4,
-    paddingHorizontal: 10,
-    borderColor: '#e3d87e',
-    width: '90%',
-    borderRadius: 35,
-    overflow: 'hidden',
-    marginBottom: 15,
-    alignSelf: 'center',
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'space-between', // Aligns items with equal space between them
+        width: '100%'
+      },
+      content: {
+        flex: 1, // Take up remaining space
+        justifyContent: 'center', // Center content vertically
+      },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center', 
+    marginBottom: 20,
+    maxWidth: 300,
   },
-  footerButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 3,
-    borderRadius: 10,
-    width: 55,
-  },
-  footerButtonText: {
-    textAlign: 'center',
-    marginTop: 5,
-    fontSize: 12,
+  startButton: {
+    backgroundColor: '#E3D87E',
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+    borderRadius: 20,
+    marginTop: 20,
+    width:'50%', 
+    alignSelf:'center',
+ },
+  buttonText: {
     color: '#5e5b08',
+    fontSize: 21,
+    fontWeight: 'bold',
   },
-  selectedButton: {
-    backgroundColor: '#5e5b08',
+  pressedButton: {
+    backgroundColor: '#E3D87E',
   },
 });

@@ -38,7 +38,7 @@ const screenWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#fff', 
     width: '100%',
     justifyContent: 'space-between',
   },
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 15,
-    color: '#000000', // Green color
+    color: '#748067', // Green color
     padding:20,
   },
   stats: {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   stat: {
     fontSize: 18,
     marginBottom: 10,
-    color: '#000000', // Green color
+    color: '#748067', // Green color
   },
   exercises: {
     flexDirection: 'column',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     padding: 15,
     borderRadius: 8,
-    backgroundColor: '#F0EC57', // White color
+    backgroundColor: '#BBCEA8', // White color
     elevation: 3,
   },
   exerciseTitle: {
