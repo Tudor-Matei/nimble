@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { Video } from 'expo-av';
 import Register from './Register'; // Import the Register component
-import { BlurView } from 'expo-blur';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,6 +21,31 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    console.log("request123")
+    fetch('http://192.168.81.120:3001/api/signin', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  })
+    .then(response => {console.log(response); return response})
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        console.log('Login successful');
+      } else {
+        console.log('Login failed:', data.message);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+
     setIsLoginPressed(true);
   };
 
@@ -65,7 +90,7 @@ const Login = () => {
           value={password}
           onChangeText={text => setPassword(text)}
         /> 
-        <TouchableOpacity style={styles.logButton} onPress={handleLogin}>
+        <TouchableOpacity style={styles.logButton} onPress={() => handleLogin()}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity> 
       </View> : <Register/>}

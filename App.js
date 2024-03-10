@@ -8,6 +8,7 @@ import Exercise from './Exercise';
 import Avatar from './Avatar';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
+import Register from './Register';
 
 
 
@@ -16,7 +17,7 @@ export default function App() {
     <NativeRouter>
       <View style={styles.container}>
         <Routes>
-          <Route path="/" element={<Avatar />} />
+          <Route path="/" element={<Login />} />
           <Route path="/workout" element={<Exercise />} />
           <Route path="/stats" element={<Stats />} />
         </Routes>
@@ -24,7 +25,6 @@ export default function App() {
     <Footer />
 
     </NativeRouter>
-    
   );
 }
 

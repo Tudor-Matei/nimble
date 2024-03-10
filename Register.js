@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -9,10 +9,37 @@ const Register = () => {
 
 
   const handleRegister = () => {
-    // Perform registration logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // You can send a request to your backend to register the user
+    if (password !== confirmpassword) {
+      Alert.alert('Passwords do not match');
+      return;
+    }
+
+    const userData = {
+      username: username,
+      email: email,
+      password: password
+    };
+
+    fetch('http://192.168.81.120:3001/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        console.log('Registration successful');
+      } else {
+        console.error('Registration failed:', data.message);
+        Alert.alert('Registration failed', data.message);
+      }
+    })
+    .catch(error => {
+      console.error('Error registering user:', error);
+      Alert.alert('Error', 'Failed to register. Please try again later.');
+    });
   };
 
   return (
@@ -47,7 +74,7 @@ const Register = () => {
           placeholderTextColor="#ccc"
           secureTextEntry
           value={confirmpassword}
-          onChangeText={text => setConfrimPassword(text)}
+          onChangeText={text => setConfirmPassword(text)}
         />
         <TouchableOpacity style={styles.registerButton} onPress={handleRegister} activeOpacity={0.7}>
           <Text style={styles.buttonText}>Register</Text>

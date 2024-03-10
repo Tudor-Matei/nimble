@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Link, useNavigate } from 'react-router-native';
+import { Link, useLocation, useNavigate } from 'react-router-native';
 
 
 export const Footer = () => {
@@ -12,8 +12,9 @@ export const Footer = () => {
     };
 
     const navigate = useNavigate();
-
-    return (
+    const location = useLocation();
+    console.log(location.pathname);
+    return location.pathname === "/" ? null : (
         <View style={styles.footerContainer}>
             <TouchableOpacity
                 style={[
