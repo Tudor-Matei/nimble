@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         marginBottom: 15,
         alignSelf: 'center',
+        zIndex: -1
     },
     footerButton: {
         alignItems: 'center',
