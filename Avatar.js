@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+// TODO: 
+//evolutia va fi facuta intr-un check dupa fiecare workout completat. Daca numarul de workouturi depaseste un numar, se face evolutia automat
+
 const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
   const [items, setItems] = useState([
-    { image: "assets/icon.png", name: "Wings", price: 30 },
-    { image: "assets/icon.png", name: "Bracelet", price: 30 },
-    { image: "assets/icon.png", name: "Earrings", price: 30 },
-    { image: "assets/icon.png", name: "lmao", price: 30 },
-  ]);
+    { name: "Red skin", price: 30 },
+    { name: "Green skin", price: 30, url:"./assets/dragon_adult_verde.png"  },
+    { name: "Blue skin", price: 30  },
+    { name: "Magenta skin", price: 30 },
+    { name: "Orange skin", price: 30 },
+  ])
   
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
@@ -27,7 +31,6 @@ const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
 
   return (
     <ScrollView style={styles.shopTab}>
-      {/* <Image source={require(item.image)} width={10} resizeMode='contain' height={10} /> */}
       {
         items.map((item, i) => (
           <TouchableOpacity key={`item_${i}`} onPress={selectedItemIndex !== i ? () => previewItem(i) : () => buyItem(i)}>
@@ -50,8 +53,8 @@ const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
 }
 
 const Avatar = () => {
-  const [isShopOpen, setShopOpen] = useState(true);
-  const [numberOfCoins, setNumberOfCoins] = useState(1000);
+  const [isShopOpen, setShopOpen] = useState(false);
+  const [numberOfCoins, setNumberOfCoins] = useState(1005);
 
   return (
     <>
@@ -67,7 +70,7 @@ const Avatar = () => {
         </TouchableOpacity>
       </View>
       <View style={[styles.container, isShopOpen ? { marginBottom: -150} : {}]}>
-        <Image source={require("./assets/animal_adult.png")} style={styles.logoImage} />
+          <Image source={require("./assets/animal_adult.png")} style={styles.logoImage} />
         <View style={styles.userInfo}>
           <Text style={[styles.username, isShopOpen ? { display: "none"} : {}]}>John Doe</Text>
           <Text style={[styles.email, isShopOpen ? { display: "none"} : {}]}>john.doe@example.com</Text>
@@ -125,8 +128,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: "#f7ffbd",
     height: '10%',
-    zIndex: 200,
-    bottom: -100,
+    bottom: -100
   },
   item: {
     padding: 15,

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import {Footer} from './Footer';
-import Exercise from './Exercise';
-import Blank from './Blank';
 
 export const Start = () => {
   const [selectedButton, setSelectedButton] = useState('Stats');
@@ -17,14 +15,11 @@ export const Start = () => {
       <View style={styles.content}>
         <Text style={styles.title}>Are you ready for this challenge?</Text>
         <TouchableOpacity
-          style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
-          onPress={handleStartPress}
+          style={styles.startButton}
         >
           <Text style={styles.buttonText}>START</Text>
         </TouchableOpacity>
       </View>
-
-      <Footer/>
     </View>
   );
 };

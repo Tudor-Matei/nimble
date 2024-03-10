@@ -6,6 +6,7 @@ import Exercise from './Exercise';
 import Avatar from './Avatar';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
+import DoExercise from './DoExercise';
 
 
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/" element={<Avatar />} />
           <Route path="/workout" element={<Exercise />} />
           <Route path="/stats" element={<Stats />} />
+          <Route path="/start" element={<DoExercise />} />
         </Routes>
       </View>
     <Footer />
