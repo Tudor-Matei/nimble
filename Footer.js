@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         marginBottom: 15,
         alignSelf: 'center',
+        zIndex: -1
     },
     footerButton: {
         alignItems: 'center',
@@ -114,3 +115,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#5e5b08',
     },
 });
+
+export default Footer;

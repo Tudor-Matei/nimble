@@ -1,32 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Footer } from './Footer';
+import { useLocation, useNavigate } from 'react-router-native';
 
 const DoExercise = () => {
-  const [isStartPressed, setIsStartPressed] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const exerciseDetails = location.state;
+  const interval = useRef(null);
+  const [monitoredDetails, setMonitorDetails] = useState({ calories: -1, heart: -1, steps: -1 })
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      fetch("https://cooperative-vintage-friction.glitch.me/get-sensor-data", {
+        method: "POST",
+        body: JSON.stringify({ deviceID: 1234 }),
+      }).then(r => r.json()).then(({ data }) => {
+        console.log(data);
+        setMonitorDetails({ calories: data[0].calories, heart: data[0].heart, steps: data[0].steps });
+      }).catch((error) => console.error(error));
+    }, 5000);
 
-  const handleStartPress = () => {
-    setIsStartPressed(true);
-  };
+    return () => clearInterval(interval.current);
+  }, []);
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-          <Text style={styles.title}>TIMER/REP</Text>
-        <TouchableOpacity
-          style={[styles.startButton, isStartPressed ? styles.pressedButton : null]}
-          onPress={handleStartPress}
-        >
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.startButton, isStartPressed ? styles.pressedButton : null]}
-        >
-          <Text style={styles.buttonText}>Couldn't do it lol</Text>
-        </TouchableOpacity>
+  return exerciseDetails === null ? navigate("/workout") :
+    (
+      <View style={styles.container}>
+        <View style={styles.content}>
+          <Text style={styles.title}>{exerciseDetails.title}</Text>
+          <Text>{exerciseDetails.description}</Text>
+          <Text style={styles.monitoring}>Monitoring activity...</Text>
+          <Text style={styles.monitoring}>{
+          [monitoredDetails.calories, monitoredDetails.heart, monitoredDetails.steps]
+            .every(detail => detail === -1) ? "" :
+            `${monitoredDetails.calories} calories, ${monitoredDetails.heart} BPM, ${monitoredDetails.steps} steps`}</Text>
+
+          <View style={styles.buttons}>
+            <TouchableOpacity onPress={() => {
+              if (monitoredDetails.calories < 50) return;
+
+              clearInterval(interval.current);
+              // TODO: register progress
+              navigate("/stats");
+            }} style={[styles.startButton, monitoredDetails.calories < 50 ? { opacity: 0.2 } : ({})]}>
+              <Text style={styles.buttonText}>Done</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.startButton}>
+              <Text style={styles.buttonText}>Stop</Text>
+            </TouchableOpacity>
+          </View>
+
+        </View>
       </View>
-    </View>
-  );
+    )
 };
 
 const styles = StyleSheet.create({
@@ -55,18 +80,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 10,
     borderRadius: 20,
-    marginTop: 20,
-    width: '50%',
-    alignSelf: 'center',
   },
+
+  monitoring: {
+    marginTop: 50
+  },
+
   buttonText: {
     color: '#5e5b08',
     fontSize: 21,
     fontWeight: 'bold',
   },
-  pressedButton: {
-    backgroundColor: '#E3D87E',
-  },
+
+  buttons: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    position: 'absolute',
+    bottom: 25
+  }
 });
 
 export default DoExercise;

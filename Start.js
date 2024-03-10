@@ -2,32 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import {Footer} from './Footer';
 
-const Start = () => {
-  const [isStartPressed, setIsStartPressed] = useState(false);
-  const [animation] = useState(new Animated.Value(0));
+export const Start = () => {
+  const [selectedButton, setSelectedButton] = useState('Stats');
 
-  useEffect(() => {
-    Animated.timing(animation, {
-      toValue: 1,
-      duration: 300, 
-      delay: 1000, 
-      useNativeDriver: true,
-    }).start();
-  }, []);
-
-  const handleStartPress = () => {
-    setIsStartPressed(true);
-  };
-
-  const buttonStyle = {
-    transform: [
-      {
-        scale: animation.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0.01, 1],
-        }),
-      },
-    ],
+  const handleButtonPress = (buttonName) => {
+    setSelectedButton(buttonName);
+   
   };
 
   return (
@@ -35,13 +15,11 @@ const Start = () => {
       <View style={styles.content}>
         <Text style={styles.title}>Are you ready for this challenge?</Text>
         <TouchableOpacity
-          style={[styles.startButton, isStartPressed ? styles.pressedButton : null, buttonStyle]}
-          onPress={handleStartPress}
+          style={styles.startButton}
         >
           <Text style={styles.buttonText}>START</Text>
         </TouchableOpacity>
       </View>
-
     </View>
   );
 };

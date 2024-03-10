@@ -2,13 +2,11 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NativeRouter, Route, Routes } from 'react-router-native';
-import Login from './Login';
-import Start from './Start';
 import Exercise from './Exercise';
 import Avatar from './Avatar';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
-import Register from './Register';
+import DoExercise from './DoExercise';
 
 
 
@@ -20,6 +18,7 @@ export default function App() {
           <Route path="/" element={<Login />} />
           <Route path="/workout" element={<Exercise />} />
           <Route path="/stats" element={<Stats />} />
+          <Route path="/start" element={<DoExercise />} />
         </Routes>
       </View>
     <Footer />
