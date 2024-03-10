@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     backgroundColor: 'rgba(255, 236, 87, 0.5)',
   },
+
   loginButton: {
     backgroundColor: '#E3D87E',
     paddingHorizontal: 20,
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   buttonText: {
-    color: '#5e5b08',
+    color: 'black',
     fontSize: 21,
   },
   pressedButton: {

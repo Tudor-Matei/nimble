@@ -87,7 +87,6 @@ app.get(`/api/workouts`, (req, res) => {
 
 app.post('/api/signin', (req, res) => {
     const { email, password } = req.body;
-    console.log(email, password);
     const query = `SELECT * FROM users WHERE email = ? AND password = ?`;
     db.query(query, [email, password], (error, results) => {
         if (error) {
