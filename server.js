@@ -62,6 +62,29 @@ app.post('/api/signup', (req, res) => {
     });
 });
 
+app.get(`/api/workouts`, (req, res) => {
+    const query = `SELECT * FROM workouts`;
+    db.query(query, (err, data) => {
+      if (err) {
+        return res.json(err);
+      } else {
+        return res.json(data);
+      }
+    });
+  });
+
+  app.get(`/api/exercises`, (req, res) => {
+    const query = `SELECT * FROM exercises`;
+    db.query(query, (err, data) => {
+      if (err) {
+        return res.json(err);
+      } else {
+        return res.json(data);
+      }
+    });
+  });
+  
+
 app.post('/api/signin', (req, res) => {
     const { email, password } = req.body;
     console.log(email, password);

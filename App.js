@@ -7,7 +7,7 @@ import Avatar from './Avatar';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
 import DoExercise from './DoExercise';
-
+import Login from "./Login";
 
 
 export default function App() {
