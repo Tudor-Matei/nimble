@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 15,
     padding: 15,
-    borderRadius: 8,
-    backgroundColor: '#BBCEA8', // White color
-    elevation: 3,
+    borderRadius: 45,
+    borderColor: '#BBCEA8', // White color
+    borderWidth: 3
   },
   exerciseTitle: {
     fontSize: 18,

@@ -2,22 +2,20 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-// TODO: 
-//evolutia va fi facuta intr-un check dupa fiecare workout completat. Daca numarul de workouturi depaseste un numar, se face evolutia automat
 
-const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
+const ShopTab = ({ numberOfCoins, setNumberOfCoins, setImageURL }) => {
   const [items, setItems] = useState([
-    { name: "Red skin", price: 30 },
-    { name: "Green skin", price: 30, url:"./assets/dragon_adult_verde.png"  },
-    { name: "Blue skin", price: 30  },
-    { name: "Magenta skin", price: 30 },
-    { name: "Orange skin", price: 30 },
+    { name: "Red skin", price: 40, color: "red", image: "./assets/dragon-red.png"},
+    { name: "Green skin", price: 50, color: "green", image: "./assets/dragon-green.png"},
+    { name: "Blue skin", price: 120, color: "blue", image: "./assets/dragon-blue.png"},
+    { name: "Turqouise skin", price: 40, color: "cyan", image: "./assets/dragon-turqouise.png"},
+    { name: "Purple skin", price: 90, color: "purple", image: "./assets/dragon-purple.png" },
+    { name: "Light purple skin", price: 90, color: "violet", image: "./assets/dragon-light-purple.png" },
   ])
   
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
   const previewItem = (index) => {
-    // TODO: preview
     setSelectedItemIndex(index);
   }
 
@@ -26,6 +24,7 @@ const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
       setNumberOfCoins(numberOfCoins - items[index].price);
       setItems(items.filter((_, i) => i !== index)); 
       setSelectedItemIndex(-1);
+      setImageURL(items[index].image);
     }
   }
 
@@ -34,11 +33,11 @@ const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
       {
         items.map((item, i) => (
           <TouchableOpacity key={`item_${i}`} onPress={selectedItemIndex !== i ? () => previewItem(i) : () => buyItem(i)}>
-          <View style={[styles.item, selectedItemIndex === i ? {backgroundColor: 'red', justifyContent: 'center'} : {}]}>
+          <View style={[styles.item, selectedItemIndex === i ? {backgroundColor: 'gold', justifyContent: 'center'} : {}]}>
             {
               selectedItemIndex === i ? <Text>Buy</Text> : (
                 <>
-                <View style={{width: 75, height: 75, backgroundColor: 'red'}}></View>
+                <View style={{width: 75, height: 75, backgroundColor: item.color}}></View>
                 <Text>{item.name}</Text>
                 <Text>{item.price}</Text>
                 </>
@@ -55,7 +54,7 @@ const ShopTab = ({ numberOfCoins, setNumberOfCoins }) => {
 const Avatar = () => {
   const [isShopOpen, setShopOpen] = useState(false);
   const [numberOfCoins, setNumberOfCoins] = useState(1005);
-
+  const [imageURL, setImageURL] = useState("./assets/animal_adult.png");
   return (
     <>
       <View style={styles.topInfo} >
@@ -70,14 +69,31 @@ const Avatar = () => {
         </TouchableOpacity>
       </View>
       <View style={[styles.container, isShopOpen ? { marginBottom: -150} : {}]}>
-          <Image source={require("./assets/animal_adult.png")} style={styles.logoImage} />
+        { imageURL === "./assets/dragon-red.png" &&
+          <Image source={require("./assets/dragon-red.png")} style={styles.logoImage} />
+         }
+         { imageURL === "./assets/dragon-green.png" &&
+          <Image source={require("./assets/dragon-green.png")} style={styles.logoImage} />
+         }
+         { imageURL === "./assets/dragon-blue.png" &&
+          <Image source={require("./assets/dragon-blue.png")} style={styles.logoImage} />
+         }
+         { imageURL === "./assets/dragon-turqouise.png" &&
+          <Image source={require("./assets/dragon-turqouise.png")} style={styles.logoImage} />
+         }
+         { imageURL === "./assets/dragon-purple.png" &&
+          <Image source={require("./assets/dragon-purple.png")} style={styles.logoImage} />
+         }
+         { imageURL === "./assets/dragon-light-purple.png" &&
+          <Image source={require("./assets/dragon-light-purple.png")} style={styles.logoImage} />
+         }
         <View style={styles.userInfo}>
           <Text style={[styles.username, isShopOpen ? { display: "none"} : {}]}>John Doe</Text>
           <Text style={[styles.email, isShopOpen ? { display: "none"} : {}]}>john.doe@example.com</Text>
         </View>
       </View>
       {
-        isShopOpen && <ShopTab numberOfCoins={numberOfCoins} setNumberOfCoins={setNumberOfCoins} />
+        isShopOpen && <ShopTab setImageURL={setImageURL} numberOfCoins={numberOfCoins} setNumberOfCoins={setNumberOfCoins} />
       }
     </>
   );
@@ -133,7 +149,6 @@ const styles = StyleSheet.create({
   item: {
     padding: 15,
     margin: 10,
-    color: 'red',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

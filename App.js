@@ -1,13 +1,11 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NativeRouter, Route, Routes } from 'react-router-native';
 import Exercise from './Exercise';
-import Avatar from './Avatar';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
 import DoExercise from './DoExercise';
-
+import Login from "./Login"
 
 
 export default function App() {
