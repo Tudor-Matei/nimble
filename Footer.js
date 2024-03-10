@@ -59,7 +59,7 @@ export const Footer = () => {
                 onPress={
                     () => {
                         handleButtonPress('Profile');
-                        navigate("/");
+                        navigate("/avatar");
                     }
                 }
                 style={[

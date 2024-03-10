@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    fetch('http://192.168.81.120:3001/api/signin', {
+    fetch('http://192.168.64.51:3001/api/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Login = () => {
         password: password,
       }),
     })
-      .then(response => { console.log(response); return response })
+      .then(response => { return response })
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -45,7 +45,7 @@ const Login = () => {
         console.error('Error:', error);
       });
 
-      navigate()
+      navigate("/stats")
   };
 
   return (

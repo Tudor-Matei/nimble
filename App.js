@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NativeRouter, Route, Routes } from 'react-router-native';
-import Exercise from './Exercise';
+import { Exercise } from './Exercise';
 import { Footer } from "./Footer";
 import { Stats } from './Stats';
 import DoExercise from './DoExercise';
 import Login from "./Login";
-import Login from "./Login"
+import Avatar from "./Avatar";
 
 
 export default function App() {
@@ -18,6 +18,7 @@ export default function App() {
           <Route path="/workout" element={<Exercise />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/start" element={<DoExercise />} />
+          <Route path="/avatar" element={<Avatar />} />
         </Routes>
       </View>
     <Footer />
